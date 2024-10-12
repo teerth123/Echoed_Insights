@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply font-sans; /* Use Tailwind's default font */
+    font-family: 'Roboto', sans-serif; /* Set the default font to Roboto */
+    background-color: black;
+    margin: 0; 
+}
