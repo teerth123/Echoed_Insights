@@ -2,9 +2,9 @@ const zod = require('zod');
 
 const complete_signup_User_Middleware = (req, res, next) => {
     const zod_Schema = zod.object({
-        PRN: zod.string().optional().default(""), // PRN can be an empty string
+        PRN: zod.string().min(1, 'PRN is required'), // Ensures PRN is not empty
         walchandiate: zod.boolean(), // Ensures walchandiate is a boolean
-        role: zod.string().optional().default(""), // Role can be an empty string
+        role: zod.enum(['undergrad', 'alumni'], 'Role is required'), // Validates role
         otp: zod.string().min(1, { message: "OTP is required" }), // Ensures OTP is not empty
         email: zod.string().email({ message: "Invalid email format" }) // Validates email format
     });

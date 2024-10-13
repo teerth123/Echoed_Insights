@@ -15,7 +15,7 @@ const signin_User = async (req, res) => {
     }
 
     const userId = user._id;
-    const token = jwt.sign({ userId }, secret, { expiresIn: '7d' });
+    const token = jwt.sign({ userId }, secret, { expiresIn: '7d' }); // Change to '1h' if shorter expiration is needed
 
     return res.status(200).json({
         msg: 'Signed in successfully',

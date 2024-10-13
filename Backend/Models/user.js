@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['undergrad', 'alumni', ''], // restricts values to specific options
+        enum: ['undergrad', 'alumni'], // restricts values to specific options
     },
     otp: {
         type: String, // Field to store the OTP
