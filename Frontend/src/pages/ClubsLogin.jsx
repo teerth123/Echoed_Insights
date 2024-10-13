@@ -4,7 +4,12 @@ import { Label } from "../@/components/ui/ui/label";
 import { Input } from "../@/components/ui/ui/input";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
-
+import {
+    IconBrandGithub,
+    IconBrandGoogle,
+    IconBrandOnlyfans,
+  } from "@tabler/icons-react";
+  
 export default function BeforeStart() {
     const [walchandiate, setWalchandiate] = useState(null);
     const [role, setRole] = useState(null);
@@ -39,43 +44,37 @@ export default function BeforeStart() {
             </div>
             <div className="max-w-md w-full mt-5 mx-auto rounded border border-[#575454] md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
                 <h2 className="font-bold text-2xl text-neutral-800 dark:text-neutral-200">
-                    Before we start
+                    Club's Sign up
                 </h2>
                 
                 <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
                 <form className="my-8 mt-14" onSubmit={handleSubmit}>
-                    <BeforeQue
-                        que={"Are you <b>Walchandiate?</b>"}
-                        optionA={"Yes"}
-                        optionB={"No"}
-                        walchandiate={walchandiate}
-                        setWalchandiate={setWalchandiate}
-                    />
                     
-                    {/* Conditional rendering of the second question */}
-                    {walchandiate === 'yes' && (
-                        <BeforeQue
-                            que={"Are you?"}
-                            optionA={"Undergrad"}
-                            optionB={"Alumni"}
-                            walchandiate={role}
-                            setWalchandiate={setRole}
-                        />
-                    )}
+                    <LabelInputContainer className="mb-4">
+                        <Label htmlFor="password">Club Name</Label>
+                        <Input id="password" placeholder="••••••••" type="password" />
+                    </LabelInputContainer>
+                    
+                    <LabelInputContainer className="mb-4">
+                        <Label htmlFor="email">Email Address</Label>
+                        <Input id="email" placeholder="john.wick@walchandsangli.ac.in" type="email" />
+                    </LabelInputContainer>
 
-                    {role === 'Undergrad'?  
+                    
+                    
+                    
+                    <div
+                        className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
                         <LabelInputContainer className="mb-4">
-                            <Label htmlFor="password">PRN</Label>
-                            <Input id="password" placeholder="••••••••" type="password" />
-                        </LabelInputContainer> : console.log("alumni")
-                    }
-
-                    
+                        <Label htmlFor="password">Invite Code</Label>
+                        <Input id="password" placeholder="••••••••" type="password" />
+                        <p className="text-zinc-500	text-xs text-left">Don't have? <b className="text-gray-400">Request here.</b></p>
+                    </LabelInputContainer>
                     <LabelInputContainer className="mb-4">
                         <Label htmlFor="password">OTP</Label>
                         <Input id="password" placeholder="••••••••" type="password" />
                     </LabelInputContainer>
-
+                    </div>
                     <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
 
                     <div className="flex flex-col space-y-4">
@@ -86,29 +85,25 @@ export default function BeforeStart() {
                             <BottomGradient />
                         </button>
                     </div>
+                    <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+                    <div className="flex flex-col space-y-4">
+                    <button
+                        className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+                        type="submit">
+                        <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
+                        <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+                        Google
+                        </span>
+                        <BottomGradient />
+                    </button>
+                    </div>
                 </form>
             </div>
         </>
     );
 }
 
-function BeforeQue({ que, optionA, optionB, walchandiate, setWalchandiate }) {
-    return (
-        <div className="flex justify-around border border-[#363636] p-5 rounded mb-5">
-            <h1 className="text-white font-inter text-2xl " dangerouslySetInnerHTML={{ __html: que }} />
-            <div className="ml-5">
-                <div className="flex m-2" onClick={() => setWalchandiate('yes')}>
-                    <div className={`rounded-full w-6 h-6 cursor-pointer transition-all duration-300 ease-in-out ${walchandiate === 'yes' ? 'bg-[#4BD834] shadow-[0_0_10px_#4BD834]' : 'bg-[#D9D9D9] hover:shadow-[0_0_10px_#D9D9D9]'}`}></div>
-                    <h1 className="text-white font-inter ml-3">{optionA}</h1>
-                </div>
-                <div className="flex m-2" onClick={() => setWalchandiate('no')}>
-                    <div className={`rounded-full w-6 h-6 cursor-pointer transition-all duration-300 ease-in-out ${walchandiate === 'no' ? 'bg-[#4BD834] shadow-[0_0_10px_#4BD834]' : 'bg-[#D9D9D9] hover:shadow-[0_0_10px_#D9D9D9]'}`}></div>
-                    <h1 className="text-white font-inter ml-3">{optionB}</h1>
-                </div>
-            </div>
-        </div>
-    );
-}
+
 
 const BottomGradient = () => {
     return (

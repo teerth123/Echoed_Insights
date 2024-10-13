@@ -12,6 +12,7 @@ import Que from './components/Que';
 import IconGroup from './components/Icons_micro';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import BeforeStart from './pages/BeforeStart';
+import ClubsLogin from './pages/ClubsLogin'
 
 function AppContent() { 
   const navigate = useNavigate();
@@ -216,6 +217,7 @@ function App() {
         <Route path="/signin" element={<SignupFormDemo />} />
         <Route path="/login" element={<LoginFormDemo />} />
         <Route path='/before' element={<BeforeStart />} />
+        <Route path='/clubslogin' element={<ClubsLogin />} />
       </Routes>
     </Router>
   );
