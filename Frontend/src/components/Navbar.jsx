@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Signin from '../pages/Signin';
 
 
 export default function Navbar() {
